@@ -1,6 +1,7 @@
 import 'package:apple_calculator/constances/constances.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:math_expressions/math_expressions.dart';
 
 class SimpleCalculate extends StatefulWidget {
   SimpleCalculate({super.key});
@@ -11,7 +12,8 @@ class SimpleCalculate extends StatefulWidget {
 
 class _SimpleCalculateState extends State<SimpleCalculate> {
   var userInput = '';
-  var resuilt = '';
+  var result = '';
+
   void buttonPressed(String text) {
     setState(() {
       userInput = userInput + text;
@@ -158,13 +160,21 @@ class _SimpleCalculateState extends State<SimpleCalculate> {
               Expanded(
                 flex: 13,
                 child: Container(
-                  padding: EdgeInsets.symmetric(vertical: 24, horizontal: 12),
+                  padding: EdgeInsets.symmetric(vertical: 4),
                   width: double.infinity,
                   color: blackBackground,
                   child: Stack(
                     alignment: Alignment.bottomRight,
                     children: [
-                      Text(userInput, style: TextStyle(color: Colors.white)),
+                      Text(
+                        userInput,
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontFamily: 'sf',
+                          fontWeight: FontWeight.bold,
+                          fontSize: 60,
+                        ),
+                      ),
                     ],
                   ),
                 ),
@@ -177,7 +187,131 @@ class _SimpleCalculateState extends State<SimpleCalculate> {
                     //spacing: 14,
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
-                      getRow('AC', '+/-', '%', '÷'),
+                      // getRow(deleteStatus(userInput, result), '+/-', '%', '÷'),
+                      Row(
+                        //spacing: 14,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          SizedBox(
+                            height: 80,
+                            width: 80,
+                            child: TextButton(
+                              style: TextButton.styleFrom(
+                                shape: CircleBorder(
+                                  side: BorderSide(
+                                    color: Colors.transparent,
+                                    width: 0,
+                                  ),
+                                ),
+                                backgroundColor: grayButtonColor,
+                              ),
+                              onPressed: () {
+                                // buttonPressed(text1);
+                              },
+                              child: Padding(
+                                padding: const EdgeInsets.all(3.0),
+                                child: deleteStatus(userInput, result),
+                              ),
+                            ),
+                          ),
+                          SizedBox(
+                            height: 80,
+                            width: 80,
+                            child: TextButton(
+                              style: TextButton.styleFrom(
+                                shape: CircleBorder(
+                                  side: BorderSide(
+                                    color: Colors.transparent,
+                                    width: 0,
+                                  ),
+                                ),
+                                backgroundColor: getOperatorColor('+/-'),
+                              ),
+                              onPressed: () {
+                                buttonPressed('+/-');
+                              },
+                              child: Padding(
+                                padding: const EdgeInsets.all(3.0),
+                                child: Text(
+                                  '+/-',
+
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                    color: getOperatorText('+/-'),
+                                    fontFamily: 'sf',
+                                    fontSize: 34,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                          SizedBox(
+                            height: 80,
+                            width: 80,
+                            child: TextButton(
+                              style: TextButton.styleFrom(
+                                shape: CircleBorder(
+                                  side: BorderSide(
+                                    color: Colors.transparent,
+                                    width: 0,
+                                  ),
+                                ),
+                                backgroundColor: getOperatorColor('%'),
+                              ),
+                              onPressed: () {
+                                buttonPressed('%');
+                              },
+                              child: Padding(
+                                padding: const EdgeInsets.all(3.0),
+                                child: Text(
+                                  '%',
+                                  textAlign: TextAlign.center,
+                                  //sfjasfpjsfd
+                                  style: TextStyle(
+                                    color: getOperatorText('%'),
+                                    fontFamily: 'sf',
+                                    fontSize: 34,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                          SizedBox(
+                            height: 80,
+                            width: 80,
+                            child: TextButton(
+                              style: TextButton.styleFrom(
+                                shape: CircleBorder(
+                                  side: BorderSide(
+                                    color: Colors.transparent,
+                                    width: 0,
+                                  ),
+                                ),
+                                backgroundColor: getOperatorColor('÷'),
+                              ),
+                              onPressed: () {
+                                buttonPressed('/');
+                              },
+                              child: Padding(
+                                padding: const EdgeInsets.all(3.0),
+                                child: Text(
+                                  '÷',
+                                  textAlign: TextAlign.center,
+                                  //sfjasfpjsfd
+                                  style: TextStyle(
+                                    color: getOperatorText('÷'),
+                                    fontFamily: 'sf',
+                                    fontSize: 34,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
                       getRow("7", "8", "9", "×"),
                       getRow('4', '5', '6', '-'),
                       getRow('1', '2', '3', '+'),
@@ -297,9 +431,7 @@ class _SimpleCalculateState extends State<SimpleCalculate> {
               ),
               backgroundColor: orangeButtonColor,
             ),
-            onPressed: () {
-              buttonPressed('=');
-            },
+            onPressed: () {},
             child: Padding(
               padding: const EdgeInsets.all(3.0),
               child: Text(
@@ -318,6 +450,30 @@ class _SimpleCalculateState extends State<SimpleCalculate> {
         ),
       ],
     );
+  }
+
+  Widget deleteStatus(String userInput, String result) {
+    if (userInput == '' || result != '') {
+      return Text(
+        'AC',
+        textAlign: TextAlign.center,
+        style: TextStyle(
+          color: blackTextColor,
+          fontFamily: 'sf',
+          fontSize: 34,
+          fontWeight: FontWeight.bold,
+        ),
+      );
+    } else {
+      return SizedBox(
+        height: 40,
+        width: 40,
+        child: Image(
+          image: AssetImage('assets/images/del.jpg'),
+          alignment: Alignment.center,
+        ),
+      );
+    }
   }
 
   bool isOperator(String text) {
