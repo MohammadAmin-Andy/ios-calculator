@@ -239,7 +239,9 @@ class _SimpleCalculateState extends State<SimpleCalculate> {
               ),
               backgroundColor: blackButtonColor,
             ),
-            onPressed: () {},
+            onPressed: () {
+              buttonPressed('0');
+            },
             child: Padding(
               padding: const EdgeInsets.all(3.0),
               child: Text(
@@ -266,7 +268,9 @@ class _SimpleCalculateState extends State<SimpleCalculate> {
               ),
               backgroundColor: blackButtonColor,
             ),
-            onPressed: () {},
+            onPressed: () {
+              buttonPressed(',');
+            },
             child: Padding(
               padding: const EdgeInsets.all(3.0),
               child: Text(
@@ -293,7 +297,9 @@ class _SimpleCalculateState extends State<SimpleCalculate> {
               ),
               backgroundColor: orangeButtonColor,
             ),
-            onPressed: () {},
+            onPressed: () {
+              buttonPressed('=');
+            },
             child: Padding(
               padding: const EdgeInsets.all(3.0),
               child: Text(
