@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:developer';
 
 import 'package:apple_calculator/constances/constances.dart';
@@ -74,6 +75,28 @@ class _SimpleCalculateState extends State<SimpleCalculate> {
           mainAxisSize: MainAxisSize.max,
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
+            Expanded(child: Container()),
+
+            Container(
+              padding: EdgeInsets.symmetric(vertical: 4),
+              width: double.infinity,
+              color: blackBackground,
+              child: Stack(
+                alignment: Alignment.bottomRight,
+                children: [
+                  Text(
+                    userInput,
+                    textAlign: TextAlign.end,
+                    style: TextStyle(
+                      color: Colors.grey[600],
+                      fontFamily: 'sf',
+                      fontWeight: FontWeight.bold,
+                      fontSize: 60,
+                    ),
+                  ),
+                ],
+              ),
+            ),
             Container(
               padding: EdgeInsets.symmetric(vertical: 4),
               width: double.infinity,
@@ -85,7 +108,7 @@ class _SimpleCalculateState extends State<SimpleCalculate> {
                     total,
                     textAlign: TextAlign.end,
                     style: TextStyle(
-                      color: Colors.white,
+                      color: whiteTextColor,
                       fontFamily: 'sf',
                       fontWeight: FontWeight.bold,
                       fontSize: 60,
