@@ -1,4 +1,3 @@
-
 # iOS Calculator Clone for Android (WIP)
 
 🚧 **Project Status: In Development – Not yet completed or released** 🚧
@@ -22,6 +21,14 @@ It is **not a simple copy**, but a careful clone that aims to **mimic the UI and
 - 🔄 Full landscape mode support
 - 🔄 Animations and haptic feedback similar to iOS
 - 🔄 Full UX polish to feel exactly like the iOS experience
+- 🔄 Correct spacing between numbers and operators (e.g., `12 + 13` instead of `12+13`)
+- 🔄 Fix symbol display for multiplication/division (currently showing `*` and `/`)
+- 🔄 Remove unnecessary trailing zeroes (e.g., show `45` instead of `45.000000`)
+- 🔄 Prevent text overflow on large numbers (auto font scaling)
+- 🔄 Limit max digits in input (e.g., 12 digits)
+- 🔄 Show alert for unimplemented scientific/pro features
+- 🔄 Make `+/-` toggle button functional
+- 🔄 Add digit grouping (e.g., `1,234,567`)
 
 > 🛠️ This is just the beginning. The calculator will receive **frequent updates** to bring it closer and closer to the real iOS experience.
 
@@ -30,6 +37,7 @@ It is **not a simple copy**, but a careful clone that aims to **mimic the UI and
 ## 📱 Platform
 
 - This is an **Android clone** of the iOS Calculator app.
+- Built with **Flutter**
 
 ---
 
@@ -40,7 +48,21 @@ Made with 💙 by **Mohammad Amin Amirkolaei Andy**
 
 ---
 
+## 👫 Contributing
+
+You’re welcome to open issues or pull requests for any of the following:
+
+- Fixing layout or functional bugs
+- Improving the UI to match iOS style
+- Helping implement missing features listed above
+
+---
+
 ## 📄 License
 
-See [LICENSE.txt](./LICENSE.txt) for custom license details.  
-MIT version also available in [MIT_LICENSE.txt](./MIT_LICENSE.txt).
+This project uses a **custom license**.  
+Commercial use or redistribution under your own name is **not allowed**.
+
+See [`LICENSE`](./LICENSE) for full terms.
+
+---
