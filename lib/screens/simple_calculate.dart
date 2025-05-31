@@ -71,54 +71,53 @@ class _SimpleCalculateState extends State<SimpleCalculate> {
       String total = number.toStringAsFixed(6);
       return Expanded(
         flex: 13,
-        child: SingleChildScrollView(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.end,
-            children: [
-              //Expanded(child: Container()),
-              Container(
-                padding: EdgeInsets.symmetric(vertical: 4),
-                width: double.infinity,
-                color: blackBackground,
-                child: Stack(
-                  alignment: Alignment.bottomRight,
-                  children: [
-                    Text(
-                      userInput,
-                      textAlign: TextAlign.end,
-                      style: TextStyle(
-                        color: Colors.grey[600],
-                        fontFamily: 'sf',
-                        fontWeight: FontWeight.bold,
-                        fontSize: 40,
-                      ),
+        child: Column(
+          mainAxisSize: MainAxisSize.max,
+          crossAxisAlignment: CrossAxisAlignment.end,
+          children: [
+            Spacer(),
+            //Expanded(child: Container()),
+            Container(
+              padding: EdgeInsets.symmetric(vertical: 4),
+              width: double.infinity,
+              color: blackBackground,
+              child: Stack(
+                alignment: Alignment.bottomRight,
+                children: [
+                  Text(
+                    userInput,
+                    textAlign: TextAlign.end,
+                    style: TextStyle(
+                      color: Colors.grey[600],
+                      fontFamily: 'sf',
+                      fontWeight: FontWeight.bold,
+                      fontSize: 40,
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
-              Container(
-                padding: EdgeInsets.symmetric(vertical: 4),
-                width: double.infinity,
-                color: blackBackground,
-                child: Stack(
-                  alignment: Alignment.bottomRight,
-                  children: [
-                    Text(
-                      total,
-                      textAlign: TextAlign.end,
-                      style: TextStyle(
-                        color: whiteTextColor,
-                        fontFamily: 'sf',
-                        fontWeight: FontWeight.bold,
-                        fontSize: 60,
-                      ),
+            ),
+            Container(
+              padding: EdgeInsets.symmetric(vertical: 4),
+              width: double.infinity,
+              color: blackBackground,
+              child: Stack(
+                alignment: Alignment.bottomRight,
+                children: [
+                  Text(
+                    total,
+                    textAlign: TextAlign.end,
+                    style: TextStyle(
+                      color: whiteTextColor,
+                      fontFamily: 'sf',
+                      fontWeight: FontWeight.bold,
+                      fontSize: 60,
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       );
     }
