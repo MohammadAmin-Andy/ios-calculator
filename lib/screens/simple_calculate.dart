@@ -71,53 +71,54 @@ class _SimpleCalculateState extends State<SimpleCalculate> {
       String total = number.toStringAsFixed(6);
       return Expanded(
         flex: 13,
-        child: Column(
-          mainAxisSize: MainAxisSize.max,
-          crossAxisAlignment: CrossAxisAlignment.end,
-          children: [
-            Expanded(child: Container()),
-
-            Container(
-              padding: EdgeInsets.symmetric(vertical: 4),
-              width: double.infinity,
-              color: blackBackground,
-              child: Stack(
-                alignment: Alignment.bottomRight,
-                children: [
-                  Text(
-                    userInput,
-                    textAlign: TextAlign.end,
-                    style: TextStyle(
-                      color: Colors.grey[600],
-                      fontFamily: 'sf',
-                      fontWeight: FontWeight.bold,
-                      fontSize: 60,
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              //Expanded(child: Container()),
+              Container(
+                padding: EdgeInsets.symmetric(vertical: 4),
+                width: double.infinity,
+                color: blackBackground,
+                child: Stack(
+                  alignment: Alignment.bottomRight,
+                  children: [
+                    Text(
+                      userInput,
+                      textAlign: TextAlign.end,
+                      style: TextStyle(
+                        color: Colors.grey[600],
+                        fontFamily: 'sf',
+                        fontWeight: FontWeight.bold,
+                        fontSize: 40,
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
-            ),
-            Container(
-              padding: EdgeInsets.symmetric(vertical: 4),
-              width: double.infinity,
-              color: blackBackground,
-              child: Stack(
-                alignment: Alignment.bottomRight,
-                children: [
-                  Text(
-                    total,
-                    textAlign: TextAlign.end,
-                    style: TextStyle(
-                      color: whiteTextColor,
-                      fontFamily: 'sf',
-                      fontWeight: FontWeight.bold,
-                      fontSize: 60,
+              Container(
+                padding: EdgeInsets.symmetric(vertical: 4),
+                width: double.infinity,
+                color: blackBackground,
+                child: Stack(
+                  alignment: Alignment.bottomRight,
+                  children: [
+                    Text(
+                      total,
+                      textAlign: TextAlign.end,
+                      style: TextStyle(
+                        color: whiteTextColor,
+                        fontFamily: 'sf',
+                        fontWeight: FontWeight.bold,
+                        fontSize: 60,
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       );
     }
@@ -245,7 +246,11 @@ class _SimpleCalculateState extends State<SimpleCalculate> {
               backgroundColor: getOperatorColor(text4),
             ),
             onPressed: () {
-              buttonPressed(text4);
+              if (text4 == '×') {
+                buttonPressed('*');
+              } else {
+                buttonPressed(text4);
+              }
             },
             child: Padding(
               padding: const EdgeInsets.all(3.0),
