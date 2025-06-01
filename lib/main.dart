@@ -1,4 +1,4 @@
-import 'package:apple_calculator/screens/simple_calculate.dart';
+import 'package:Calculator/screens/simple_calculate.dart';
 // import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
